@@ -154,7 +154,7 @@
                                 var div = '<div id= '+ id +' style="position: absolute;left:20px; top:'+top+';"></div>';
                                 document.body.insertAdjacentHTML('beforeend', div);
                                 var y = document.getElementById(id); 
-                                y.innerHTML ='<a href="../Test_Automation/TestResults/'+folder+'_diff.txt" target="_blank"> Check diff</a>';
+                                y.innerHTML ='<a href="TestResults/'+folder+'_diff.txt" target="_blank"> Check diff</a>';
                                 $('#'+id).append('<img id="theImg" src="button_cancel.png" />');
                                 document.getElementById('statusContent').innerHTML= "Completed vector "+j;
                             }
@@ -201,7 +201,7 @@
                                     document.body.insertAdjacentHTML('beforeend', div);
                                     var y = document.getElementById(id); 
                                     if(response== "wrong"){
-                                        y.innerHTML ='<a href="../Test_Automation/TestResults/'+folder+'_diff.txt" target="_blank"> Check differences</a>';
+                                        y.innerHTML ='<a href="TestResults/'+folder+'_diff.txt" target="_blank"> Check differences</a>';
                                         $('#'+id).prepend('<img id="theImg" src="button_cancel.png" />');
                                         document.getElementById('statusContent').innerHTML= "Completed vector "+j;
                                     }
