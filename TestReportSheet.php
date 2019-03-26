@@ -1,6 +1,6 @@
 <?php
 
-require '/var/www/html/Test_Automation/vendor/autoload.php';
+require __DIR__.'/vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -19,7 +19,7 @@ function string_operations($locate, $mpdURL)
     $all_report_files = array_merge($RepLogFiles, $CrossValidDVB, $CrossRepDASH); // put all the filepaths in a single array
     $segment_errors = array();
    
-    $xlsx_file = '/var/www/html/Test_Automation/TestReport.xlsx'; // the location and name of the report file
+    $xlsx_file = 'TestReport.xlsx'; // the location and name of the report file
     $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($xlsx_file); //since we create it before hand we read it first and then we write on it
     $sheet = $spreadsheet->getActiveSheet();
     $highCell= $sheet->getHighestDataRow();
@@ -247,17 +247,15 @@ function WriteLineToSheet($contents,$sheet,$highCell, $type, $mpdURL)
 
 function create_initial_spreadsheet() // create an initial spreadsheet and then read from it and write the data
 {
-    if(!file_exists('../Test_Automation/TestReport.xlsx'))
+    if(!file_exists('TestReport.xlsx'))
     {
-       
-        shell_exec('sudo chmod -R 777 /var/www/html/');
-        shell_exec('sudo service apache2 restart');
+    
         $spreadsheet = new Spreadsheet(); 
         $spreadsheet->setActiveSheetIndex(0)
         ->setCellValue('B1', 'MPD + Segment Report')
         ->setCellValue('A1', 'MPD');
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
-        $file_name = '../Test_Automation/TestReport.xlsx';
+        $file_name = 'TestReport.xlsx';
         $writer->save($file_name);   
         
     }

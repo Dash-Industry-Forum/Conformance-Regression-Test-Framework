@@ -5,7 +5,7 @@ To place results into References folder.
  */
 
 //$folderName = $_REQUEST['folder'];
-chdir("../Test_Automation/TestResults/");
+chdir("TestResults");
 $command1="find * -maxdepth 0 -not -name 'References'";
 $output=array();
 exec($command1,$output);

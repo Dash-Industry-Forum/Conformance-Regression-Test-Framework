@@ -26,7 +26,7 @@ if (is_dir($path)) {
 } else {
     echo "No such directory";
 } 
-   
+  
 // To get the new list of folders which includes newly created results folder.       
 $j=0;
 while($j<=$i)
@@ -50,7 +50,8 @@ while($j<=$i)
 }
 
 $Newfolder=$foldersNew[0];
-$newPath='../Test_Automation/TestResults';
+
+$newPath='TestResults';
 $FoldName='References';
 for($n=1;$n<=$length;$n++)
 {
@@ -80,11 +81,11 @@ while(1)
             if($xml->completed=="true")
             { 
                 //Write all errors to a spreadsheet before moving to new location.
-     
+                
                 create_initial_spreadsheet();
-                          
+                    
                 string_operations($path.'/'.$Newfolder, $mpdURL);
-             
+               
                 rename($path.'/'.$Newfolder, $newPath.'/'.$FoldName );
                 
                 
@@ -99,7 +100,7 @@ while(1)
 if ( file_exists( $newPath.'/'.$FoldName.'/myphp-error.log' ) )
 {
     $fileContents=file_get_contents($newPath.'/'.$FoldName.'/myphp-error.log');
-    $fileContents=str_replace('temp\/'.$Newfolder, "Test_Automation/TestResults/".$FoldName, $fileContents);
+    $fileContents=str_replace('temp\/'.$Newfolder, "TestResults/".$FoldName, $fileContents);
     file_put_contents($newPath.'/'.$FoldName.'/myphp-error.log', $fileContents);
     // Remove date-time info
     $fileContents1=file_get_contents($newPath.'/'.$FoldName.'/myphp-error.log');
