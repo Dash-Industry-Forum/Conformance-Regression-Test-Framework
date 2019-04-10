@@ -62,7 +62,7 @@ for($n=1;$n<=$length;$n++)
     }
             
 }
-
+    
 echo $FoldName;
 
 // Check progress.xml to find if Conformance Test is completed, then move the results to TestResults folder.
@@ -81,9 +81,9 @@ while(1)
             if($xml->completed=="true")
             { 
                 //Write all errors to a spreadsheet before moving to new location.
-                
+                 
                 create_initial_spreadsheet();
-                    
+                $error_counter=0;     
                 string_operations($path.'/'.$Newfolder, $mpdURL);
                
                 rename($path.'/'.$Newfolder, $newPath.'/'.$FoldName );

@@ -9,7 +9,6 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
     
 function string_operations($locate, $mpdURL)
 {
-
     global $line_count, $MPD_wrote;
     $MPD_wrote = false;
     //get all the files wich end as described below
@@ -175,58 +174,74 @@ function remove_duplicate_err($error_array)
 
 function WriteLineToSheet($contents,$sheet,$highCell, $type, $mpdURL)
 {
-    global $line_count, $MPD_wrote;
+    global $line_count, $MPD_wrote,$error_counter;
     $next = false;
     if(count($contents)!=0){
     foreach($contents as $line)
     {
         $sheet->setCellValue('B'.($highCell + $line_count), $line);
         $stripped_line = str_word_count($line,1);
+
         if(!$MPD_wrote)
         {
             $sheet->setCellValue('A'.($highCell + $line_count), $mpdURL);
             $sheet->getCell('A'.($highCell + $line_count))->getHyperlink()->setUrl($mpdURL);
-            $sheet->getStyle('A'.($highCell + $line_count))->getFont()->getColor()->setARGB('FF0000FF');
+            $sheet->getStyle('A'.($highCell + $line_count))->getFont()->getColor()->setARGB('FF000000');
             $sheet->getStyle('A'.($highCell + $line_count))->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
             $sheet->getStyle('A'.($highCell + $line_count))->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
             !$MPD_wrote = true;
         }
         if($type == 'MPD Report')//mpd errors will be displayed with a different color from the one of segment errors
         {
-            if(($stripped_line[2] == 'Info') || ($stripped_line[2] =='Information'))
+            if($stripped_line!=null){
+            if(($stripped_line[0] == 'Info') || ($stripped_line[0] =='Information'))
             {
-                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setARGB('FF000080');
+               $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setRGB('0000FF');
             }
-            elseif (($stripped_line[2] == 'Warning') || ($stripped_line[2] =='WARNING')) 
+            elseif (($stripped_line[0] == 'Warning') || ($stripped_line[0] =='WARNING')) 
             {
                 //$sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_DARKYELLOW);
-                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setARGB('FFB266');
+               $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setRGB('FF7F50');
             }
             else
             {
-                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setARGB('FF800000');
+                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setRGB('FF0000');
             }
+        }
         }
         else
         {
-            if(($stripped_line[2] == 'Info') || ($stripped_line[2] =='Information') || ($next == true))
+            if($stripped_line!=null){
+            if(($stripped_line[0] == 'Info') || ($stripped_line[0] =='Information')|| ($next == true))
             {
-                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setARGB('FF0000FF');
+                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setRGB('0000FF');
                 $next = false;
                 if((substr($line, -1)==":") || (end($stripped_line)== 'with'))
                 {
                     $next = true;
                 }
             }
-            elseif (($stripped_line[2] == 'Warning') || ($stripped_line[2] =='WARNING')) 
+            elseif (($stripped_line[0] == 'Warning') || ($stripped_line[0] =='WARNING')) 
             {
                 //$sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setARGB(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_DARKYELLOW);
-                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setARGB('FF8000');
+               $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setRGB('FF7F50');
             }
             else
             {
-                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setARGB('FFFF0000');
+                foreach($stripped_line as $word){
+                    if($word=="error"){
+                        $error_counter+=1;
+                    }
+                }
+
+                if($error_counter!=0){
+                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setRGB('DC143C');
+                }
+                else{
+                $sheet->getStyle('B'.($highCell + $line_count))->getFont()->getColor()->setRGB('0000FF');    
+                }
             }
+        }
         }
         $line_count++;
     }
