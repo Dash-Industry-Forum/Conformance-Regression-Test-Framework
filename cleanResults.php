@@ -7,6 +7,10 @@ References folder is cleaned separately depending on user requirement.
 
 $flag = $_REQUEST['flag'];
 
+if ((!file_exists("TestResults")) || (file_exists("TestResults") && !is_dir("References"))){
+    mkdir("./TestResults", 0777);
+}
+
 chdir("TestResults/");
 // clean all the folders and files that are not inside the "Reference" folder.
 exec("find * -maxdepth 0 -name 'References' -prune -o -exec rm -rf '{}' ';' ");
@@ -21,7 +25,7 @@ if (file_exists("References") && is_dir("References"))
     $arrlength = count($output);
 }else
 {
-    mkdir("References", 777);
+    mkdir("References", 0777);
     chdir("References");
     $arrlength = 0;
 }

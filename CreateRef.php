@@ -11,7 +11,7 @@ $output=array();
 exec($command1,$output);
 
 if (!file_exists("References"))
-    mkdir("References", 777);
+    mkdir("References", 0777);
 
 $arrlength = count($output);
 

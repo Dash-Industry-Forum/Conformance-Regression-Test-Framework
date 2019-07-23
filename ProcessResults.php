@@ -87,7 +87,7 @@ while(1)
                 string_operations($path.'/'.$Newfolder, $mpdURL);
                
                 rename($path.'/'.$Newfolder, $newPath.'/'.$FoldName );
-                
+                chmod($newPath.'/'.$FoldName, 0777);
                 
                 break;
             }
