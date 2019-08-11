@@ -14,6 +14,7 @@
     } else {
         // File not found.
     }?>
+
 <script>
     
     
@@ -256,6 +257,55 @@
 <input type="checkbox" id="Pause">
 <p id="PauseTitle">Continue only when the current test is closed by user</p>
 <p id="RefMsg"></p>
+
+
+
+<?php
+// Start of PHP script.
+
+// For using the PHP MongoDB Library.
+require 'vendor/autoload.php';
+
+//Variables for database connection.
+$database_name = "TestAssets";
+$database_url = "localhost:27017";
+$database_user = "";
+$database_password = "";
+
+// Connect to MongoDB Server.
+$client = new \MongoDB\Client("mongodb://{$database_url}");
+
+// Choose the required database.
+$db = $client->$database_name;
+
+// Choose the required collection.
+$db_collection = $db->testVectors;
+
+// Read all test vectors from the collection 'testVectors'.
+$test_vectors = $db_collection->find();
+
+// Clear the <textarea> element having ID 'vectors' using JavaScript code.
+echo "<script>
+var textArea = document.getElementById('vectors');
+textArea.value = '';
+</script>";
+
+// Populate the <textarea> element one by one with the URLs of test vectors using JavaScript code.
+foreach($test_vectors as $vector){
+    echo "<script>
+    // Variable 'textArea' is defined in the Javascript code in the 'echo' statement above.
+    // += is the JavaScript concatenation operator.
+    // \$vector['url'] chooses the 'url' field from each test vector.
+    // '+ \\n' adds a newline character at the end of each url.
+    textArea.value += '{$vector['url']}' + '\\n';
+    </script>";
+}
+
+// End of PHP script
+?>
+
+
+
 </body>
 
 </html>
