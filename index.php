@@ -2,9 +2,17 @@
 <html>
 <head>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>    
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script> -->
+<!-- 
+ -->
+<script src="jquery/jquery.min.js"></script>
+
+
+
+<!-- 
+ -->
 <link rel="stylesheet" type="text/css" href="TestFramework.css">
 </head>
 <body > 
@@ -108,7 +116,7 @@
             if(i<=vectors.length)
             {
 
-              if(!(document.getElementById('Checkbox').checked))
+                if(!(document.getElementById('Checkbox').checked))
                 {  
                    $.post(
                            "CountRef.php"
@@ -166,6 +174,22 @@
                                 $('#'+id).prepend('<img id="theImg" src="right.jpg" />');
                                 document.getElementById('statusContent').innerHTML= "Completed vector "+j;
                             }
+                            
+                            if(response == "right"){
+                                response = "passed";
+                            }
+                            else if(response == "wrong"){
+                                response = "failed";
+                            }
+                            else{
+                                response == null;
+                            }
+                          
+                            //Send the response to server
+                            $.post('StoreResult.php', {result:response, url:vectors[i-1], function(response){
+                                console.log(response);
+                            }});
+                 
                             if(vectors.length>j)
                                 document.getElementById('statusContent').innerHTML= "Running vector "+(j+1);
                             j++;
@@ -210,6 +234,24 @@
                                         $('#'+id).prepend('<img id="theImg" src="right.jpg" />');
                                         document.getElementById('statusContent').innerHTML= "Completed vector "+j;
                                     }
+                        
+                            if(response == "right"){
+                                response = "passed";
+                            }
+                            else if(response == "wrong"){
+                                response = "failed";
+                            }
+                            else{
+                                response == null;
+                            }
+
+                            //Send the response to server
+                            $.post('StoreResult.php', {result:response, url:vectors[i-1], function(response){
+                                console.log(response);
+                            }});
+
+
+
                                     if(vectors.length>j)
                                         document.getElementById('statusContent').innerHTML= "Running vector "+(j+1);
                                     j++;
@@ -262,45 +304,41 @@
 
 <?php
 // Start of PHP script.
+require_once('ConnectToDb.php');
+require_once('logException.php');
+require_once('writeToTextArea.php');
 
-// For using the PHP MongoDB Library.
-require 'vendor/autoload.php';
+// Clear the <textarea> element.
+// \'\' is empty string('') with escape sequences
+writeToTextArea('\'\'',1);
 
-//Variables for database connection.
-$database_name = "TestAssets";
-$database_url = "localhost:27017";
-$database_user = "";
-$database_password = "";
-
-// Connect to MongoDB Server.
-$client = new \MongoDB\Client("mongodb://{$database_url}");
-
-// Choose the required database.
-$db = $client->$database_name;
-
-// Choose the required collection.
-$db_collection = $db->testVectors;
-
-// Read all test vectors from the collection 'testVectors'.
-$test_vectors = $db_collection->find();
-
-// Clear the <textarea> element having ID 'vectors' using JavaScript code.
-echo "<script>
-var textArea = document.getElementById('vectors');
-textArea.value = '';
-</script>";
-
-// Populate the <textarea> element one by one with the URLs of test vectors using JavaScript code.
-foreach($test_vectors as $vector){
-    echo "<script>
-    // Variable 'textArea' is defined in the Javascript code in the 'echo' statement above.
-    // += is the JavaScript concatenation operator.
-    // \$vector['url'] chooses the 'url' field from each test vector.
-    // '+ \\n' adds a newline character at the end of each url.
-    textArea.value += '{$vector['url']}' + '\\n';
-    </script>";
+try{
+    $test_vectors =$db->testVectors->find();
+}
+catch(MongoDB\Driver\Exception\Exception $catchedException){
+    logException(get_class($catchedException)." : ".$catchedException->getMessage()); 
 }
 
+// Check if find() has returned any document from the collection.
+$isDeadFlag = $test_vectors->isDead();
+
+// If $isDeadFlag is true, then show error to user.
+if($isDeadFlag) {
+    writeToTextArea('Error: The selected collection is empty.',1);
+} // Else, populate the <textarea> element one by one with the URLs of test vectors.
+else {
+    foreach($test_vectors as $vector){
+        // Variable 'textArea' is defined in the Javascript code in the 'echo' statement above.
+        // += is the JavaScript concatenation operator.
+        // \$vector['url'] chooses the 'url' field from each test vector.
+        // '+ \\n' adds a newline character at the end of each url.
+        writeToTextArea("'{$vector['url']}' + '\\n'",2);
+    }
+    // Remove the last character which is a newline character.
+    // So that the DASH validator does not interpret the final empty line in the text area as a vector.
+    // The value of the string does not affect the intended functionality for 'Option 3'.
+    writeToTextArea("",3);
+}
 // End of PHP script
 ?>
 
@@ -309,5 +347,3 @@ foreach($test_vectors as $vector){
 </body>
 
 </html>
-
- 

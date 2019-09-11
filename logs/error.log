@@ -1,0 +1,427 @@
+[28.08.2019 Wednesday 11:50:11]
+No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 11:50:31]
+No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 11:52:04]
+No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 11:52:57]
+No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 11:53:15]
+No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 11:53:21]
+No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 11:59:02]
+[Connection Exception] No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 11:59:05]
+[Connection Exception] No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 11:59:08]
+[Connection Exception] No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 17:51:59]
+[Connection Exception] No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[28.08.2019 Wednesday 17:53:06]
+[Connection Exception] No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[29.08.2019 Thursday 10:35:49]
+[Connection Exception] No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[29.08.2019 Thursday 10:36:17]
+[Connection Exception] No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[29.08.2019 Thursday 10:36:20]
+[Connection Exception] No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[29.08.2019 Thursday 12:11:42]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.\n
+
+[29.08.2019 Thursday 12:12:18]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:04:15]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:05:51]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.Array
+
+[29.08.2019 Thursday 13:06:21]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:07:19]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:07:33]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:07:37]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:07:48]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:09:06]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:09:19]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:09:21]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:09:24]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:09:53]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:10:00]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:10:07]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:10:15]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:10:27]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:10:43]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:10:55]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:11:03]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:11:12]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:11:15]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:11:24]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:11:38]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:11:50]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:11:53]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:12:30]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:12:39]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:14:37]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:16:26]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:16:38]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:17:31]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 13:18:06]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 14:07:04]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 14:09:14]
+UnexpectedValueException : Argument passed to function of type \'integer\' does not match with expected type \'string\'.
+
+[29.08.2019 Thursday 14:11:47]
+UnexpectedValueException : Argument passed to function of type '$textType' does not match with expected type 'string'
+
+[29.08.2019 Thursday 14:12:42]
+UnexpectedValueException : Argument passed to function of type integer does not match with expected type 'string'
+
+[29.08.2019 Thursday 14:13:11]
+UnexpectedValueException : Argument passed to function of type 'integer'does not match with expected type 'string'
+
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:360]
+[29.08.2019 Thursday 14:44:26]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'\n
+
+[29.08.2019 Thursday 14:44:45]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'\n#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:358]
+
+
+[29.08.2019 Thursday 14:45:51]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'\n#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:358]
+
+
+[29.08.2019 Thursday 14:46:38]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'\r\n#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:358]
+
+
+[29.08.2019 Thursday 14:47:45]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+
+[29.08.2019 Thursday 14:47:45]
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:359]
+
+
+[29.08.2019 Thursday 14:49:08]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  logException(UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string') called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:352]
+#1  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:359]
+
+
+[29.08.2019 Thursday 14:51:50]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+        #0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:359]
+
+
+
+[29.08.2019 Thursday 14:53:37]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:358]
+
+
+
+[29.08.2019 Thursday 14:56:31]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:358]
+
+
+
+[29.08.2019 Thursday 14:57:07]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'\r\n#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:358]
+
+
+
+[29.08.2019 Thursday 14:57:27]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:358]
+
+
+
+[29.08.2019 Thursday 15:06:06]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:364]
+
+
+
+[29.08.2019 Thursday 15:06:48]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:364]
+
+
+
+[29.08.2019 Thursday 15:07:40]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:364]
+
+
+
+[29.08.2019 Thursday 15:08:17]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:361]
+
+
+
+[29.08.2019 Thursday 15:09:07]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:361]
+
+
+[29.08.2019 Thursday 16:47:56]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:361]
+
+
+[29.08.2019 Thursday 16:48:13]
+UnexpectedValueException : Argument passed to function writeToTextArea() of type 'integer' does not match with expected type 'string'
+#0  writeToTextArea(124434343) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/index.php:361]
+
+
+[29.08.2019 Thursday 16:55:01]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[29.08.2019 Thursday 16:59:56]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[29.08.2019 Thursday 17:04:08]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[29.08.2019 Thursday 17:08:17]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[30.08.2019 Friday 12:13:33]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[30.08.2019 Friday 12:13:53]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[30.08.2019 Friday 12:14:17]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[30.08.2019 Friday 12:14:19]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[30.08.2019 Friday 12:14:33]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[30.08.2019 Friday 12:14:58]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[30.08.2019 Friday 12:15:01]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[04.09.2019 Wednesday 20:05:19]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[04.09.2019 Wednesday 20:05:59]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[04.09.2019 Wednesday 20:07:11]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[04.09.2019 Wednesday 20:07:13]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[04.09.2019 Wednesday 20:08:29]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[04.09.2019 Wednesday 20:08:31]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[04.09.2019 Wednesday 20:09:03]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[06.09.2019 Friday 14:27:20]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[09.09.2019 Monday 17:55:50]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[09.09.2019 Monday 17:58:06]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[09.09.2019 Monday 17:58:59]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[09.09.2019 Monday 17:59:19]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[09.09.2019 Monday 18:00:13]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[09.09.2019 Monday 18:02:09]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[09.09.2019 Monday 18:13:50]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[09.09.2019 Monday 18:24:19]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[09.09.2019 Monday 18:27:23]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 10:45:42]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:2717']
+
+[11.09.2019 Wednesday 10:46:39]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:2717']
+
+[11.09.2019 Wednesday 10:46:59]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:2717']
+
+[11.09.2019 Wednesday 10:53:21]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:270']
+
+[11.09.2019 Wednesday 10:53:47]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:270']
+
+[11.09.2019 Wednesday 11:01:24]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:270']
+
+[11.09.2019 Wednesday 11:01:54]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:270']
+
+[11.09.2019 Wednesday 11:01:56]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:270']
+
+[11.09.2019 Wednesday 11:02:04]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:270']
+
+[11.09.2019 Wednesday 11:02:09]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:270']
+
+[11.09.2019 Wednesday 11:08:31]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 11:09:52]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 11:10:01]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 11:13:42]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 11:15:45]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 11:33:56]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 11:49:31]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 12:03:04]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 12:03:11]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 12:03:55]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 12:05:21]
+MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
+
+[11.09.2019 Wednesday 13:22:51]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:2017']
+
+[11.09.2019 Wednesday 13:22:51]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No servers yet eligible for rescan
+
+[11.09.2019 Wednesday 13:23:32]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[11.09.2019 Wednesday 13:23:32]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No servers yet eligible for rescan
+
+[11.09.2019 Wednesday 13:26:10]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[11.09.2019 Wednesday 13:26:10]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No servers yet eligible for rescan
+
+[11.09.2019 Wednesday 13:26:12]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+
+[11.09.2019 Wednesday 13:26:12]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No servers yet eligible for rescan
+
