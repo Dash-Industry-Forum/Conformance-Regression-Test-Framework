@@ -1,7 +1,17 @@
+<?php
+
+session_start();
+
+// If user is not logged in, redirect to login page
+if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
+    header('Location:login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-
+<!-- <meta http-equiv="refresh" content=2> -->
 <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>    
 <script src="http://code.jquery.com/jquery-latest.js"></script> -->
@@ -10,13 +20,21 @@
 <script src="jquery/jquery.min.js"></script>
 
 
-
-<!-- 
- -->
 <link rel="stylesheet" type="text/css" href="TestFramework.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body > 
-    <h2> Test Automation </h2>
+<!-- 
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>    -->
+
+
+<h2> Test Automation </h2>
     <?php if (file_exists("TestReport.xlsx")) {
         unlink("TestReport.xlsx");
     } else {
@@ -300,6 +318,10 @@
 <p id="PauseTitle">Continue only when the current test is closed by user</p>
 <p id="RefMsg"></p>
 
+<a href="logout.php"><button id="button_logout">Logout</button></a>
+
+
+
 
 
 <?php
@@ -313,10 +335,11 @@ require_once('writeToTextArea.php');
 writeToTextArea('\'\'',1);
 
 try{
-    $test_vectors =$db->testVectors->find();
+    $test_vectors =$db->test_testVectors->find();
 }
 catch(MongoDB\Driver\Exception\Exception $catchedException){
-    logException(get_class($catchedException)." : ".$catchedException->getMessage()); 
+    
+    logException(get_class($catchedException)." : ".$catchedException->getMessage());
 }
 
 // Check if find() has returned any document from the collection.
@@ -336,7 +359,7 @@ else {
     }
     // Remove the last character which is a newline character.
     // So that the DASH validator does not interpret the final empty line in the text area as a vector.
-    // The value of the string does not affect the intended functionality for 'Option 3'.
+    // The value of the string provided as argument does not affect the intended functionality for 'Option 3'.
     writeToTextArea("",3);
 }
 // End of PHP script
