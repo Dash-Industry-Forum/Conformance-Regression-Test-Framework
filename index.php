@@ -202,11 +202,19 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
                             else{
                                 response == null;
                             }
-                          
+                           
                             //Send the response to server
-                            $.post('StoreResult.php', {result:response, url:vectors[i-1], function(response){
-                                console.log(response);
-                            }});
+                            $.post('StoreResult.php', {result:response, url:vectors[i-1]}, function(response){
+                                // When everything goes well, response is a "space character" or "empty string"
+                                if(response == " " || response == ""){
+                                    // Do nothing
+                                }
+                                else{
+                                    console.log(response);
+                                    // Show error window
+                                    alert(response);
+                                }
+                            });
                  
                             if(vectors.length>j)
                                 document.getElementById('statusContent').innerHTML= "Running vector "+(j+1);
@@ -264,9 +272,17 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
                             }
 
                             //Send the response to server
-                            $.post('StoreResult.php', {result:response, url:vectors[i-1], function(response){
-                                console.log(response);
-                            }});
+                            $.post('StoreResult.php', {result:response, url:vectors[i-1]}, function(response){
+                                // When everything goes well, response is a "space character" or "empty string"
+                                if(response == " " || response == ""){
+                                    // Do nothing
+                                }
+                                else{
+                                    console.log(response);
+                                    // Show error window
+                                    alert(response);
+                                }
+                            });
 
 
 

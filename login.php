@@ -17,22 +17,31 @@ if (isset($_POST['email']) && isset($_POST['password']))
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Search database for given email
-    $db_user = $db->test_Users->findOne(['email'=>$email]);
-    $db_email = $db_user['email'];
-    $db_password = $db_user['password'];
+    try {
+        // Search database for given email
+        $db_user = $db->test_Users->findOne(['email'=>$email]);
 
-    // If user input and stored data is same, then redirect to home page
-    if (($db_email == $email) && ($db_password == $password)) {
-        $_SESSION['loggedIn'] = true;
-        $password_match = true;
-        header('Location:index.php');
+        $db_email = $db_user['email'];
+        $db_password = $db_user['password'];
+
+        // If user input and stored data is same, then redirect to home page
+        if (($db_email == $email) && ($db_password == $password)) {
+            $_SESSION['loggedIn'] = true;
+            $password_match = true;
+
+            header('Location:index.php');
+        }
+        else{
+            $_SESSION['loggedIn'] = false;
+
+            // This flag will be used in the PHP script below the HTML code
+            $password_match = false;
+        }
     }
-    else{
-        $_SESSION['loggedIn'] = false;
-
-        // This flag will be used in the PHP script below the HTML code
-        $password_match = false;
+    catch(MongoDB\Driver\Exception\Exception $catchedException) {
+        logException(get_class($catchedException)." : ".$catchedException->getMessage());
+        unset($_POST['email']);
+        unset($_POST['password']);
     }
 }
 ?>

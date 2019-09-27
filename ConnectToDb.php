@@ -14,7 +14,7 @@ $database_password = "tester123";
 
 // Connect to MongoDB Server.
 if ($database_user == "" && $database_password == "") {
-    $client = new \MongoDB\Client("mongodb://${database_url}/${database_name}");
+    $client = new \MongoDB\Client("mongodb://${database_url}");
 }
 else {
     $client = new \MongoDB\Client("mongodb://${database_user}:${database_password}@${database_url}/${database_name}");                    
@@ -31,5 +31,4 @@ catch(MongoDB\Driver\Exception\Exception $catchedException){
 
 // Choosing the database
 $db = $client->$database_name;
-
 ?>
