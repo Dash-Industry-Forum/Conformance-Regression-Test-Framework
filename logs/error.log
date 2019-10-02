@@ -6288,3 +6288,29 @@ MongoDB\Driver\Exception\AuthenticationException : Authentication failed.
 #0  logException(MongoDB\Driver\Exception\AuthenticationException : Authentication failed.) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/login.php:42]
 
 
+[01.10.2019 Tuesday 13:47:07]
+MongoDB\Driver\Exception\BulkWriteException : not authorized on test_TestAssets to execute command { update: "test_testVectors", ordered: true, $db: "test_TestAssets", lsid: { id: UUID("de9b0f38-0636-4f33-a0e5-5a84b4a83f77") } }
+#0  logException(MongoDB\Driver\Exception\BulkWriteException : not authorized on test_TestAssets to execute command { update: "test_testVectors", ordered: true, $db: "test_TestAssets", lsid: { id: UUID("de9b0f38-0636-4f33-a0e5-5a84b4a83f77") } }) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/StoreResult.php:23]
+
+
+[01.10.2019 Tuesday 13:48:04]
+MongoDB\Driver\Exception\CommandException : not authorized on test_TestAssets to execute command { find: "test_Users", filter: { email: "myemail@domain.com" }, limit: 1, $db: "test_TestAssets", $readPreference: { mode: "primaryPreferred" }, lsid: { id: UUID("484abdbc-e4d3-463d-ae50-24f877a31f35") } }
+#0  logException(MongoDB\Driver\Exception\CommandException : not authorized on test_TestAssets to execute command { find: "test_Users", filter: { email: "myemail@domain.com" }, limit: 1, $db: "test_TestAssets", $readPreference: { mode: "primaryPreferred" }, lsid: { id: UUID("484abdbc-e4d3-463d-ae50-24f877a31f35") } }) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/login.php:42]
+
+
+[01.10.2019 Tuesday 13:48:34]
+MongoDB\Driver\Exception\CommandException : not authorized on test_TestAssets to execute command { find: "test_Users", filter: { email: "myemail@domain.com" }, limit: 1, $db: "test_TestAssets", $readPreference: { mode: "primaryPreferred" }, lsid: { id: UUID("cc0a319a-1fba-4e41-83b5-de116eff7e2e") } }
+#0  logException(MongoDB\Driver\Exception\CommandException : not authorized on test_TestAssets to execute command { find: "test_Users", filter: { email: "myemail@domain.com" }, limit: 1, $db: "test_TestAssets", $readPreference: { mode: "primaryPreferred" }, lsid: { id: UUID("cc0a319a-1fba-4e41-83b5-de116eff7e2e") } }) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/login.php:42]
+
+
+[02.10.2019 Wednesday 14:53:23]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']
+#0  logException(MongoDB\Driver\Exception\ConnectionTimeoutException : No suitable servers found (`serverSelectionTryOnce` set): [connection refused calling ismaster on 'localhost:27017']) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/ConnectToDb.php:29]
+#1  require_once(/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/ConnectToDb.php) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/login.php:15]
+
+
+[02.10.2019 Wednesday 14:53:23]
+MongoDB\Driver\Exception\ConnectionTimeoutException : No servers yet eligible for rescan
+#0  logException(MongoDB\Driver\Exception\ConnectionTimeoutException : No servers yet eligible for rescan) called at [/var/www/html/MPEG-DASH/ConformanceRegressionTestFW/login.php:45]
+
+

@@ -22,10 +22,10 @@ if (isset($_POST['email']) && isset($_POST['password']))
         $db_user = $db->test_Users->findOne(['email'=>$email]);
 
         $db_email = $db_user['email'];
-        $db_password = $db_user['password'];
+        $db_password = $db_user['password'];    // the hashed password already stored in database   
 
         // If user input and stored data is same, then redirect to home page
-        if (($db_email == $email) && ($db_password == $password)) {
+        if (($db_email == $email) && (password_verify($password, $db_password))) {
             $_SESSION['loggedIn'] = true;
             $password_match = true;
 
@@ -39,9 +39,10 @@ if (isset($_POST['email']) && isset($_POST['password']))
         }
     }
     catch(MongoDB\Driver\Exception\Exception $catchedException) {
-        logException(get_class($catchedException)." : ".$catchedException->getMessage());
         unset($_POST['email']);
         unset($_POST['password']);
+
+        logException(get_class($catchedException)." : ".$catchedException->getMessage());
     }
 }
 ?>
@@ -86,10 +87,7 @@ if (isset($_POST['email']) && isset($_POST['password']))
             <div id='div_login_button'>
                 <button id="button_login">Login</button>
             </div>
-            
-            <!-- <p class="forgot"><a href="forgot_password.php">Forgot Password?</a></p> -->
-
-              
+                        
         </form>
         
     </div>
