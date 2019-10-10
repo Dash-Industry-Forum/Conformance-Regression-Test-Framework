@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+// Collections that will be used throughout the entire process
+$_SESSION['users'] = 'test_Users';
+$_SESSION['test_vectors'] = 'test_testVectors';
+
 // If user is logged in, redirect to home page
 if ($_SESSION['loggedIn'] == true){
     header('Location:index.php');
@@ -19,7 +23,8 @@ if (isset($_POST['email']) && isset($_POST['password']))
 
     try {
         // Search database for given email
-        $db_user = $db->test_Users->findOne(['email'=>$email]);
+        $db_collection = $db->selectCollection($_SESSION['users']);
+        $db_user = $db_collection->findOne(['email'=>$email]);
 
         $db_email = $db_user['email'];
         $db_password = $db_user['password'];    // the hashed password already stored in database   

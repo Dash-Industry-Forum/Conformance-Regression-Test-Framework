@@ -9,8 +9,8 @@ require_once 'logException.php';
 // Variables for database connection.
 $database_name = "test_TestAssets";
 $database_url = "localhost:27017";
-$database_user = "tester";    
-$database_password = "tester123";
+$database_user = "";    
+$database_password = "";
 
 // Connect to MongoDB Server.
 if ($database_user == "" && $database_password == "") {

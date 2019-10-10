@@ -6,18 +6,31 @@ session_start();
 if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
     header('Location:login.php');
 }
+
+// Files to be used later
+require_once('ConnectToDb.php');
+require_once('logException.php');
+
+try {
+    $db_collection = $db->selectCollection($_SESSION['test_vectors']);
+    $test_vectors =$db_collection->find();
+}
+catch(MongoDB\Driver\Exception\Exception $catchedException) {
+    logException(get_class($catchedException)." : ".$catchedException->getMessage());
+}
+
+// Check if find() has returned any document from the collection.
+// This flag will be used later.
+$isDeadFlag = $test_vectors->isDead();
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<!-- <meta http-equiv="refresh" content=2> -->
-<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>    
-<script src="http://code.jquery.com/jquery-latest.js"></script> -->
-<!-- 
- -->
-<script src="jquery/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 
 
 <link rel="stylesheet" type="text/css" href="TestFramework.css">
@@ -25,14 +38,6 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
 
 </head>
 <body > 
-<!-- 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>    -->
-
 
 <h2> Test Automation </h2>
     <?php if (file_exists("TestReport.xlsx")) {
@@ -54,15 +59,36 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
     $(document).on('input', 'textarea', function () {
         $(this).outerHeight(38).outerHeight(this.scrollHeight); // 38 or '1em' -min-height
     });
-    function assignurl(mpdfile,page)
-        {
+
+    function assignurl(mpdfile,page){
         var inturl = '../DASH-IF-Conformance/Conformance-Frontend/';
         var targeturl = inturl+"Conformancetest.php?mpdurl="+mpdfile;
+
+        // Temporarily disable asynchronization for the request to server
+        $.ajaxSetup({async:false});
+        $.post('profileFlags.php',{url:mpdfile},function(response){
+            var result = $.parseJSON(response);
+            
+            // Save profile flags from server's response
+            var dvb = result.dvb;
+            var hbbtv = result.hbbtv;
+            var cmaf = result.cmaf;
+            var dashIf = result.dashIf;
+            var ctaWave = result.ctaWave;
+
+            // Append the flags to the URL which will be send to test framework
+            targeturl = targeturl + '&dvb=' + dvb + '&hbbtv=' + hbbtv + '&cmaf=' + cmaf + '&dashIf=' + dashIf + '&ctaWave=' + ctaWave;
+        });
+
+        // Re-enable asynchronization
+        $.ajaxSetup({async:true});
+
         page.location.href = targeturl;
-        }
-     function opennewpage(){
+    }
+
+    function opennewpage(){
       page = window.open("");        
-     }
+    }
 
     
     function starttesting()
@@ -341,31 +367,18 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
 
 
 <?php
-// Start of PHP script.
-require_once('ConnectToDb.php');
-require_once('logException.php');
 require_once('writeToTextArea.php');
 
 // Clear the <textarea> element.
 // \'\' is empty string('') with escape sequences
 writeToTextArea('\'\'',1);
 
-try{
-    $test_vectors =$db->test_testVectors->find();
-}
-catch(MongoDB\Driver\Exception\Exception $catchedException){
-    
-    logException(get_class($catchedException)." : ".$catchedException->getMessage());
-}
-
-// Check if find() has returned any document from the collection.
-$isDeadFlag = $test_vectors->isDead();
-
 // If $isDeadFlag is true, then show error to user.
 if($isDeadFlag) {
-    writeToTextArea('Error: The selected collection is empty.',1);
+    writeToTextArea('\'Error: The selected collection is empty.\'',1);
 } // Else, populate the <textarea> element one by one with the URLs of test vectors.
 else {
+    // Variable 'test_vectors' is defined at top
     foreach($test_vectors as $vector){
         // Variable 'textArea' is defined in the Javascript code in the 'echo' statement above.
         // += is the JavaScript concatenation operator.
@@ -379,6 +392,7 @@ else {
     writeToTextArea("",3);
 }
 // End of PHP script
+
 ?>
 
 

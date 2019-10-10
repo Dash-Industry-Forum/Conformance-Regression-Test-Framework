@@ -8,7 +8,7 @@ $result = $_POST['result'];
 
 // Choose the required collection.
 //'$db' is the variable for the choosen database and is defined in the file 'ConnectToDb.php'
-$db_collection = $db->test_testVectors;
+$db_collection = $db->selectCollection($_SESSION['users']);
 
 // Save validation result to database
 try{
