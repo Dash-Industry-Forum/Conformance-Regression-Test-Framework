@@ -1,5 +1,4 @@
 <?php
-
 // For using the PHP MongoDB Library.
 require_once 'vendor/autoload.php';
 
@@ -9,8 +8,8 @@ require_once 'logException.php';
 // Variables for database connection.
 $database_name = "test_TestAssets";
 $database_url = "localhost:27017";
-$database_user = "";    
-$database_password = "";
+$database_user = "tester";    
+$database_password = "tester123";
 
 // Connect to MongoDB Server.
 if ($database_user == "" && $database_password == "") {

@@ -2,7 +2,7 @@
 session_start();
 
 // Collections that will be used throughout the entire process
-$_SESSION['users'] = 'test_Users';
+// $_SESSION['users'] = 'test_Users';
 $_SESSION['test_vectors'] = 'test_testVectors';
 
 // If user is logged in, redirect to home page
@@ -11,7 +11,7 @@ if ($_SESSION['loggedIn'] == true){
 }
 
 // Initializing the flag
-$password_match = true;
+$password_incorrect = false;
 
 if (isset($_POST['email']) && isset($_POST['password']))
 {
@@ -32,7 +32,7 @@ if (isset($_POST['email']) && isset($_POST['password']))
         // If user input and stored data is same, then redirect to home page
         if (($db_email == $email) && (password_verify($password, $db_password))) {
             $_SESSION['loggedIn'] = true;
-            $password_match = true;
+            $password_incorrect = false;
 
             header('Location:index.php');
         }
@@ -40,7 +40,7 @@ if (isset($_POST['email']) && isset($_POST['password']))
             $_SESSION['loggedIn'] = false;
 
             // This flag will be used in the PHP script below the HTML code
-            $password_match = false;
+            $password_incorrect = true;
         }
     }
     catch(MongoDB\Driver\Exception\Exception $catchedException) {
@@ -66,13 +66,10 @@ if (isset($_POST['email']) && isset($_POST['password']))
         <form method="post" action="">
           
             <div id='div_email'>
-                <label for="input_email" class="labels"><b>Email Address</b> *</label>
+                <label for="input_email" class="labels"><b>Username or Email</b> *</label>
                 <br>
-                <input required type="email" name="email" id ="input_email" placeholder="myemail@domain.com" autocomplete="off">
+                <input required type="text" name="email" id ="input_email" placeholder="Username or Email" autocomplete="off">
                     
-                    <!-- In case format and hover text is required, add the below lines as attributes to the above input tag -->
-                    <!-- pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" -->
-                    <!-- title="myemail@domain.com" -->
             </div>
 
             <br>
@@ -82,9 +79,6 @@ if (isset($_POST['email']) && isset($_POST['password']))
                 <br>
                 <input required type="password" name="password" id="input_password" placeholder="********" autocomplete="off">
 
-                    <!-- In case format and hover text is required, add the below lines as attributes to the above input tag -->
-                    <!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
-                    <!-- title="At least: One numeric character; One uppercase alphabetical letter; One lowercase alphabetical letter; Eight or more characters" -->
             </div>
 
             <br>
@@ -102,7 +96,7 @@ if (isset($_POST['email']) && isset($_POST['password']))
 
 <?php
 // Runs only if user entered details don't match with any entry in the database
-if($password_match == false){
+if($password_incorrect == true){
     echo "<script type='text/javascript'>
 
     // Insert paragraph before the login button
