@@ -6,22 +6,6 @@ session_start();
 if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
     header('Location:login.php');
 }
-
-// Files to be used later
-require_once('ConnectToDb.php');
-require_once('logException.php');
-
-try {
-    $db_collection = $db->selectCollection($_SESSION['test_vectors']);
-    $test_vectors =$db_collection->find();
-}
-catch(MongoDB\Driver\Exception\Exception $catchedException) {
-    logException(get_class($catchedException)." : ".$catchedException->getMessage());
-}
-
-// Check if find() has returned any document from the collection.
-// This flag will be used later.
-$isDeadFlag = $test_vectors->isDead();
 ?>
 
 <!DOCTYPE html>
@@ -362,16 +346,29 @@ $isDeadFlag = $test_vectors->isDead();
 
 <a href="logout.php"><button id="button_logout">Logout</button></a>
 
-
-
-
-
 <?php
 require_once('writeToTextArea.php');
+
+// Files to be used later
+require_once('ConnectToDb.php');
+require_once('logException.php');
 
 // Clear the <textarea> element.
 // \'\' is empty string('') with escape sequences
 writeToTextArea('\'\'',1);
+
+try {
+    $db_collection = $db->selectCollection($_SESSION['test_vectors']);
+    $test_vectors =$db_collection->find();
+}
+catch(MongoDB\Driver\Exception\Exception $catchedException) {
+    logException(get_class($catchedException)." : ".$catchedException->getMessage());
+}
+
+// Check if find() has returned any document from the collection.
+// This flag will be used later.
+$isDeadFlag = $test_vectors->isDead();
+
 
 // If $isDeadFlag is true, then show error to user.
 if($isDeadFlag) {
@@ -380,11 +377,14 @@ if($isDeadFlag) {
 else {
     // Variable 'test_vectors' is defined at top
     foreach($test_vectors as $vector){
-        // Variable 'textArea' is defined in the Javascript code in the 'echo' statement above.
-        // += is the JavaScript concatenation operator.
-        // \$vector['url'] chooses the 'url' field from each test vector.
-        // '+ \\n' adds a newline character at the end of each url.
-        writeToTextArea("'{$vector['url']}' + '\\n'",2);
+        // Only display if 'hidden' flag is false
+        if (!$vector['hidden']){
+            // Variable 'textArea' is defined in the Javascript code in the 'echo' statement above.
+            // += is the JavaScript concatenation operator.
+            // \$vector['url'] chooses the 'url' field from each test vector.
+            // '+ \\n' adds a newline character at the end of each url.
+            writeToTextArea("'{$vector['url']}' + '\\n'",2);
+        }
     }
     // Remove the last character which is a newline character.
     // So that the DASH validator does not interpret the final empty line in the text area as a vector.
@@ -394,8 +394,6 @@ else {
 // End of PHP script
 
 ?>
-
-
 
 </body>
 
