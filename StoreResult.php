@@ -3,16 +3,16 @@ require_once('ConnectToDb.php');
 require_once('logException.php');
 
 // Get the data sent by client
-$url = $_POST['url'];
 $result = $_POST['result'];
+$id = $_POST['id'];
 
 // Choose the required collection.
 //'$db' is the variable for the choosen database and is defined in the file 'ConnectToDb.php'
-$db_collection = $db->selectCollection($_SESSION['users']);
+$db_collection = $db->selectCollection($_SESSION['test_vectors']);
 
 // Save validation result to database
 try{
-    $command = $db_collection->updateOne(['url'=>$url],['$set'=>['result'=>$result]]);
+    $command = $db_collection->updateOne(['_id'=>$id],['$set'=>['result'=>$result]]);
 }
 catch (MongoDB\Driver\Exception\Exception $catchedException){
     $catchedException_modified = str_replace(array('\\','\'','\"','`','  '),' ',$catchedException);

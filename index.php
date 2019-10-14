@@ -5,6 +5,9 @@ session_start();
 if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
     header('Location:login.php');
 }
+else {
+    require_once('ConnectToDb.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +45,6 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
 
 <?php
     require_once('writeToTextArea.php');
-    require_once('ConnectToDb.php');
     require_once('logException.php');
 
     if (file_exists("TestReport.xlsx")) {
@@ -74,6 +76,9 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
     $dashIf = "";
     $ctaWave = "";
 
+    // Array for storing ID of each vector
+    $vector_id = array();
+
     // If $isDeadFlag is true, then show error to user.
     if($isDeadFlag) {
         writeToTextArea('\'Error: The selected collection is empty.\'',1);
@@ -91,7 +96,10 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
                 // '+ \\n' adds a newline character at the end of each url.
                 writeToTextArea("'{$vector['url']}' + '\\n'",2);
 
-                // Access the flags for profile enforcing
+                // Save the 'unique key' attribute of the vector
+                array_push($vector_id, $vector['_id']);
+
+                // Save the flags for profile enforcing
                 $vector_dvb = $vector['dvb'];
                 $vector_cmaf = $vector['cmaf'];
                 $vector_hbbtv = $vector['hbbtv'];
@@ -174,7 +182,6 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
                 {  //Clean temp folder
                  $.post( 
                     "cleanup.php",
-                    {path:'../DASH-IF-Conformance/Conformance-Frontend/temp/'},
                     function(response)
                     {
                         console.log(response);  
@@ -220,12 +227,15 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
             var vectors = vectorstr.split("\n");
             console.log(vectors);
 
-            // Flags for profile enforcing
+            // Storing flags for profile enforcing from PHP to JS
             var dvb = "<?php echo $dvb;?>";
             var hbbtv = "<?php echo $hbbtv;?>";
             var cmaf = "<?php echo $cmaf;?>";
             var dashIf = "<?php echo $dashIf;?>";
             var ctaWave = "<?php echo $ctaWave;?>";
+
+            // Storing the 'unique key' attribute of each vector from PHP to JS
+            var vectorId = <?php echo json_encode($vector_id); ?>;
         }
          
 
@@ -305,7 +315,7 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
                             }
                            
                             //Send the response to server
-                            $.post('StoreResult.php', {result:response, url:vectors[i-1]}, function(response){
+                            $.post('StoreResult.php', {result:response, id:vectorId[i-1]}, function(response){
                                 // When everything goes well, response is a "space character" or "empty string"
                                 if(response == " " || response == ""){
                                     // Do nothing
@@ -315,7 +325,7 @@ if (!isset($_SESSION["loggedIn"]) || $_SESSION['loggedIn'] == false){
                                     // Show error window
                                     alert(response);
                                 }
-                            });
+                            }); 
                  
                             if(vectors.length>j)
                                 document.getElementById('statusContent').innerHTML= "Running vector "+(j+1);
