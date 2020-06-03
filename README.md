@@ -8,24 +8,17 @@ The tool is used to create Conformance test results(References) and/or compare e
 * Place this repository in your local device in the folder where 'DASH-IF-Conformance' is kept and provide read/write/execute permissions.
 * Go into your local repository and install PhpSpreadsheet using the command
 
-`composer require phpoffice/phpspreadsheet`
+  * `composer require phpoffice/phpspreadsheet`
 
-If composer is not installed, install it using
+  * __NOTE:__ If composer is not installed, install it using
 
-`sudo apt-get update`
-
-`sudo apt-get install curl php-cli php-mbstring git unzip`
-
-`cd ~`
-
-`curl -sS https://getcomposer.org/installer -o composer-setup.php`
-
-`sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer`
-
-`php composer-setup.php`
-
-`sudo mv composer.phar /usr/local/bin/composer`
-
+    * `sudo apt-get update`
+    * `sudo apt-get install curl php-cli php-mbstring git unzip`
+    * `cd ~`
+    * `curl -sS https://getcomposer.org/installer -o composer-setup.php`
+    * `sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer`
+    * `php composer-setup.php`
+    * `sudo mv composer.phar /usr/local/bin/composer`
 
 ## Usage
 
