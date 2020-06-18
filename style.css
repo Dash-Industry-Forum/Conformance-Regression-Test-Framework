@@ -1,0 +1,125 @@
+body {
+  font-family: "Signika","Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+  background: #F7F7F7;
+  /* padding-top: 150px; */
+}
+a.toggle-vis {
+  cursor: pointer;
+  color: #3174c7;
+  text-decoration: none;
+}
+div#filter_columns {
+  margin: 0 0 20px 0;
+}
+
+a.toggle-vis.inactive {
+  color: dimgrey;
+}
+
+a.toggle-vis:after {
+  content: " - ";
+}
+
+a.toggle-vis:last-child:after {
+  content: "";
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.pull-left.date:hover {
+  text-decoration: none;
+}
+
+.menu-item {
+  cursor: pointer;
+}
+
+a.paginate_button {
+  cursor:pointer;
+}
+
+a.paginate_button.current {
+  color: white;
+}
+
+.btn-default{
+  color: #73879C;
+}
+
+td.cell-list span.cell-list-item:after {
+  content: ",";
+}
+
+td.cell-list span.cell-list-item:last-child:after {
+  content: "";
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.navbar-default {
+    background: #ffffff;
+}
+
+article > a.date {
+  margin-left: 5px;
+}
+
+
+/*Added by Uzair for harmonizng fonts and colorurs with DASH-IF website and styling the newly added pages (login page etc.)*/
+body{
+    color:rgb(115, 135, 156);
+    font-family: "sans-serif";
+}
+
+/* ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  
+}
+
+ul li{
+   float:left;
+   border:solid; 
+
+} */
+
+#div_login_form{
+    text-align: center;
+    align-content: center;
+    margin-top: 15vmax;
+    padding:10px;
+}
+
+#input_email, #input_password{
+    width:25%;
+    padding:0.3%;
+}
+
+#button_login{
+    background-color: rgb(22, 159, 133);
+    color: white;
+    padding:0.3%;
+    width:25%; 
+    border-radius: 10px;
+}
+
+#button_login:hover{
+    opacity:0.8;
+}
+
+#button_logout{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    padding:0.3%;
+    width:10%;
+    border-radius: 10px;
+    float:right;
+    clear: right;
+}
