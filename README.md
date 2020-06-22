@@ -22,5 +22,8 @@ The tool is used to create Conformance test results(References) and/or compare e
 
 ## Usage
 
-Launch the page on a web browser and provide a list of DASH test vectors (MPD files) that need to be tested.
+$database_name and $database_url in ConnectToDb should be set according to the actual database name and url. 
+
+Launch the page on a web browser, enter valid username and password (that is used for test assets database). This should populate the text area on the web page with a list of DASH-IF test vectors hosted on the test assets database.
+
 "Create References" option can be selected to create original test results, which can then be compared with the next batch of test results.
