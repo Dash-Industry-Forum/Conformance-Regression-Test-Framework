@@ -154,7 +154,7 @@ else {
 
     function assignurl(mpdfile, page, dvb, hbbtv, cmaf, dashIf, ctaWave){
         var inturl = '../DASH-IF-Conformance/Conformance-Frontend/';
-        var targeturl = inturl+"Conformancetest.php?mpdurl="+mpdfile;
+        var targeturl = inturl+"#/start?mpdurl="+mpdfile;
 
         // Append the flags to the URL which will be send to test framework
         targeturl = targeturl + '&dvb=' + dvb + '&hbbtv=' + hbbtv + '&cmaf=' + cmaf + '&dashIf=' + dashIf + '&ctaWave=' + ctaWave;
